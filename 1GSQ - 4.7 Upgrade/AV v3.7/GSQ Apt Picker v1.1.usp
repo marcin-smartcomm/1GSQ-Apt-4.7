@@ -1,0 +1,150 @@
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+
+
+DIGITAL_INPUT  _SKIP_,_SKIP_,_SKIP_,_SKIP_,_SKIP_,_SKIP_,_SKIP_,
+			   SendAptInfo;
+
+ANALOG_OUTPUT _SKIP_,_SKIP_,_SKIP_,_SKIP_,_SKIP_,_SKIP_,_SKIP_,AptNumber#;
+
+String_OUTPUT _SKIP_,_SKIP_,_SKIP_,_SKIP_,_SKIP_,_SKIP_,_SKIP_,AptType$;
+String_OUTPUT AptLevel$;
+String_OUTPUT AptNumber$;
+String_OUTPUT AptName$;
+String_OUTPUT HVAC_URL$;
+
+
+
+
+/*******************************************************************************************
+  Parameter Properties
+  (Uncomment and declare parameter properties as needed)
+*******************************************************************************************/
+
+INTEGER_PARAMETER Apartment;
+#BEGIN_PARAMETER_PROPERTIES Apartment
+propValidUnits=unitDecimal|unitHex;
+propDefaultUnit=unitDecimal;
+propDefaultValue=999d;
+
+propList =
+{1d,"TH1"},
+{2d,"TH2"},
+{3d,"TH3"},
+{4d,"Duplex4"},
+{5d,"Duplex5"},
+{6d,"Studio1"},
+{7d,"Studio2"},
+{8d,"Studio3"},
+{9d,"Studio4"},
+{10d,"APT1-2"},
+{11d,"APT1-3"},
+{12d,"APT1-4"},
+{13d,"APT1-5"},
+{14d,"APT1-6"},
+{15d,"APT1-7"},
+{16d,"APT2-1"},
+{17d,"APT2-2"},
+{18d,"APT2-3"},
+{19d,"APT2-4"},
+{20d,"APT2-5"},
+{21d,"APT2-6"},
+{22d,"APT2-7"},
+{23d,"APT3-1"},
+{24d,"APT3-2"},
+{25d,"APT3-3"},
+{26d,"APT3-4"},
+{27d,"APT3-5"},
+{28d,"APT3-6"},
+{29d,"APT3-7"},
+{30d,"APT3-8"},
+{31d,"APT4-1"},
+{32d,"APT4-2"},
+{33d,"APT4-3"},
+{34d,"APT4-4"},
+{35d,"APT4-5"},
+{36d,"APT4-6"},
+{37d,"APT4-7"},
+{38d,"APT5-1"},
+{39d,"APT5-2"},
+{40d,"APT5-3"},
+{41d,"APT5-4"},
+{42d,"APT5-5"},
+{43d,"APT6-1"},
+{44d,"APT6-2"},
+{45d,"APT6-3"},
+{46d,"APT6-4"},
+{47d,"APT6-5"},
+{48d,"PH"},
+{999d,"DD099"};
+
+propShortDescription = "Please Select an Apt Number";
+#END_PARAMETER_PROPERTIES
+
+
+
+
+PUSH SendAptInfo
+
+{
+AptNumber# = Apartment;
+
+
+IF (AptNumber#=1){MAKESTRING (AptType$,"Type 01");MAKESTRING (AptLevel$,"Town House");MAKESTRING (AptNumber$,"1");MAKESTRING (AptName$,"TH1");MAKESTRING (HVAC_URL$,"http://10.1.1.15:8080");}
+IF (AptNumber#=2){MAKESTRING (AptType$,"Type 02");MAKESTRING (AptLevel$,"Town House");MAKESTRING (AptNumber$,"2");MAKESTRING (AptName$,"TH2");MAKESTRING (HVAC_URL$,"http://10.1.2.15:8080");}
+IF (AptNumber#=3){MAKESTRING (AptType$,"Type 03");MAKESTRING (AptLevel$,"Town House");MAKESTRING (AptNumber$,"3");MAKESTRING (AptName$,"TH3");MAKESTRING (HVAC_URL$,"http://10.1.3.15:8080");}
+IF (AptNumber#=4){MAKESTRING (AptType$,"Type 08");MAKESTRING (AptLevel$,"Duplex");MAKESTRING (AptNumber$,"4");MAKESTRING (AptName$,"Duplex4");MAKESTRING (HVAC_URL$,"http://10.1.4.15:8080");}
+IF (AptNumber#=5){MAKESTRING (AptType$,"Type 09");MAKESTRING (AptLevel$,"Duplex");MAKESTRING (AptNumber$,"5");MAKESTRING (AptName$,"Duplex5");MAKESTRING (HVAC_URL$,"http://10.1.5.15:8080");}
+IF (AptNumber#=6){MAKESTRING (AptType$,"Type 04");MAKESTRING (AptLevel$,"Studio");MAKESTRING (AptNumber$,"6");MAKESTRING (AptName$,"Studio1");MAKESTRING (HVAC_URL$,"http://10.1.6.15:8080");}
+IF (AptNumber#=7){MAKESTRING (AptType$,"Type 05");MAKESTRING (AptLevel$,"Studio");MAKESTRING (AptNumber$,"7");MAKESTRING (AptName$,"Studio2");MAKESTRING (HVAC_URL$,"http://10.1.7.15:8080");}
+IF (AptNumber#=8){MAKESTRING (AptType$,"Type 06");MAKESTRING (AptLevel$,"Studio");MAKESTRING (AptNumber$,"8");MAKESTRING (AptName$,"Studio3");MAKESTRING (HVAC_URL$,"http://10.1.8.15:8080");}
+IF (AptNumber#=9){MAKESTRING (AptType$,"Type 07");MAKESTRING (AptLevel$,"Studio");MAKESTRING (AptNumber$,"9");MAKESTRING (AptName$,"Studio4");MAKESTRING (HVAC_URL$,"http://10.1.9.15:8080");}
+IF (AptNumber#=10){MAKESTRING (AptType$,"Grey Box");MAKESTRING (AptLevel$,"Level 01");MAKESTRING (AptNumber$,"10");MAKESTRING (AptName$,"APT1-2");MAKESTRING (HVAC_URL$,"http://10.1.10.15:8080");}
+IF (AptNumber#=11){MAKESTRING (AptType$,"Grey Box");MAKESTRING (AptLevel$,"Level 01");MAKESTRING (AptNumber$,"11");MAKESTRING (AptName$,"APT1-3");MAKESTRING (HVAC_URL$,"http://10.1.11.15:8080");}
+IF (AptNumber#=12){MAKESTRING (AptType$,"Type 12");MAKESTRING (AptLevel$,"Level 01");MAKESTRING (AptNumber$,"12");MAKESTRING (AptName$,"APT1-4");MAKESTRING (HVAC_URL$,"http://10.1.12.15:8080");}
+IF (AptNumber#=13){MAKESTRING (AptType$,"Type 13");MAKESTRING (AptLevel$,"Level 01");MAKESTRING (AptNumber$,"13");MAKESTRING (AptName$,"APT1-5");MAKESTRING (HVAC_URL$,"http://10.1.13.15:8080");}
+IF (AptNumber#=14){MAKESTRING (AptType$,"Type 14");MAKESTRING (AptLevel$,"Level 01");MAKESTRING (AptNumber$,"14");MAKESTRING (AptName$,"APT1-6");MAKESTRING (HVAC_URL$,"http://10.1.14.15:8080");}
+IF (AptNumber#=15){MAKESTRING (AptType$,"Type 15");MAKESTRING (AptLevel$,"Level 01");MAKESTRING (AptNumber$,"15");MAKESTRING (AptName$,"APT1-7");MAKESTRING (HVAC_URL$,"http://10.1.15.15:8080");}
+IF (AptNumber#=16){MAKESTRING (AptType$,"Type 10");MAKESTRING (AptLevel$,"Level 02");MAKESTRING (AptNumber$,"16");MAKESTRING (AptName$,"APT2-1");MAKESTRING (HVAC_URL$,"http://10.1.16.15:8080");}
+IF (AptNumber#=17){MAKESTRING (AptType$,"Type 29");MAKESTRING (AptLevel$,"Level 02");MAKESTRING (AptNumber$,"17");MAKESTRING (AptName$,"APT2-2");MAKESTRING (HVAC_URL$,"http://10.1.17.15:8080");}
+IF (AptNumber#=18){MAKESTRING (AptType$,"Type 16");MAKESTRING (AptLevel$,"Level 02");MAKESTRING (AptNumber$,"18");MAKESTRING (AptName$,"APT2-3");MAKESTRING (HVAC_URL$,"http://10.1.18.15:8080");}
+IF (AptNumber#=19){MAKESTRING (AptType$,"Type 17");MAKESTRING (AptLevel$,"Level 02");MAKESTRING (AptNumber$,"19");MAKESTRING (AptName$,"APT2-4");MAKESTRING (HVAC_URL$,"http://10.1.19.15:8080");}
+IF (AptNumber#=20){MAKESTRING (AptType$,"Type 13");MAKESTRING (AptLevel$,"Level 02");MAKESTRING (AptNumber$,"20");MAKESTRING (AptName$,"APT2-5");MAKESTRING (HVAC_URL$,"http://10.1.20.15:8080");}
+IF (AptNumber#=21){MAKESTRING (AptType$,"Type 14");MAKESTRING (AptLevel$,"Level 02");MAKESTRING (AptNumber$,"21");MAKESTRING (AptName$,"APT2-6");MAKESTRING (HVAC_URL$,"http://10.1.21.15:8080");}
+IF (AptNumber#=22){MAKESTRING (AptType$,"Type 15");MAKESTRING (AptLevel$,"Level 02");MAKESTRING (AptNumber$,"22");MAKESTRING (AptName$,"APT2-7");MAKESTRING (HVAC_URL$,"http://10.1.22.15:8080");}
+IF (AptNumber#=23){MAKESTRING (AptType$,"Type 10");MAKESTRING (AptLevel$,"Level 03");MAKESTRING (AptNumber$,"23");MAKESTRING (AptName$,"APT3-1");MAKESTRING (HVAC_URL$,"http://10.1.23.15:8080");}
+IF (AptNumber#=24){MAKESTRING (AptType$,"Type 29");MAKESTRING (AptLevel$,"Level 03");MAKESTRING (AptNumber$,"24");MAKESTRING (AptName$,"APT3-2");MAKESTRING (HVAC_URL$,"http://10.1.24.15:8080");}
+IF (AptNumber#=25){MAKESTRING (AptType$,"Type 16");MAKESTRING (AptLevel$,"Level 03");MAKESTRING (AptNumber$,"25");MAKESTRING (AptName$,"APT3-3");MAKESTRING (HVAC_URL$,"http://10.1.25.15:8080");}
+IF (AptNumber#=26){MAKESTRING (AptType$,"Type 17");MAKESTRING (AptLevel$,"Level 03");MAKESTRING (AptNumber$,"26");MAKESTRING (AptName$,"APT3-4");MAKESTRING (HVAC_URL$,"http://10.1.26.15:8080");}
+IF (AptNumber#=27){MAKESTRING (AptType$,"Type 13");MAKESTRING (AptLevel$,"Level 03");MAKESTRING (AptNumber$,"27");MAKESTRING (AptName$,"APT3-5");MAKESTRING (HVAC_URL$,"http://10.1.27.15:8080");}
+IF (AptNumber#=28){MAKESTRING (AptType$,"Type 14");MAKESTRING (AptLevel$,"Level 03");MAKESTRING (AptNumber$,"28");MAKESTRING (AptName$,"APT3-6");MAKESTRING (HVAC_URL$,"http://10.1.28.15:8080");}
+IF (AptNumber#=29){MAKESTRING (AptType$,"Type 30");MAKESTRING (AptLevel$,"Level 03");MAKESTRING (AptNumber$,"29");MAKESTRING (AptName$,"APT3-7");MAKESTRING (HVAC_URL$,"http://10.1.29.15:8080");}
+IF (AptNumber#=30){MAKESTRING (AptType$,"Type 31");MAKESTRING (AptLevel$,"Level 03");MAKESTRING (AptNumber$,"30");MAKESTRING (AptName$,"APT3-8");MAKESTRING (HVAC_URL$,"http://10.1.30.15:8080");}
+IF (AptNumber#=31){MAKESTRING (AptType$,"Type 10");MAKESTRING (AptLevel$,"Level 04");MAKESTRING (AptNumber$,"31");MAKESTRING (AptName$,"APT4-1");MAKESTRING (HVAC_URL$,"http://10.1.31.15:8080");}
+IF (AptNumber#=32){MAKESTRING (AptType$,"Type 29");MAKESTRING (AptLevel$,"Level 04");MAKESTRING (AptNumber$,"32");MAKESTRING (AptName$,"APT4-2");MAKESTRING (HVAC_URL$,"http://10.1.32.15:8080");}
+IF (AptNumber#=33){MAKESTRING (AptType$,"Type 16");MAKESTRING (AptLevel$,"Level 04");MAKESTRING (AptNumber$,"33");MAKESTRING (AptName$,"APT4-3");MAKESTRING (HVAC_URL$,"http://10.1.33.15:8080");}
+IF (AptNumber#=34){MAKESTRING (AptType$,"Type 17");MAKESTRING (AptLevel$,"Level 04");MAKESTRING (AptNumber$,"34");MAKESTRING (AptName$,"APT4-4");MAKESTRING (HVAC_URL$,"http://10.1.34.15:8080");}
+IF (AptNumber#=35){MAKESTRING (AptType$,"Type 13");MAKESTRING (AptLevel$,"Level 04");MAKESTRING (AptNumber$,"35");MAKESTRING (AptName$,"APT4-5");MAKESTRING (HVAC_URL$,"http://10.1.35.15:8080");}
+IF (AptNumber#=36){MAKESTRING (AptType$,"Type 14");MAKESTRING (AptLevel$,"Level 04");MAKESTRING (AptNumber$,"36");MAKESTRING (AptName$,"APT4-6");MAKESTRING (HVAC_URL$,"http://10.1.36.15:8080");}
+IF (AptNumber#=37){MAKESTRING (AptType$,"Type 28");MAKESTRING (AptLevel$,"Level 04");MAKESTRING (AptNumber$,"37");MAKESTRING (AptName$,"APT4-7");MAKESTRING (HVAC_URL$,"http://10.1.37.15:8080");}
+IF (AptNumber#=38){MAKESTRING (AptType$,"Type 18");MAKESTRING (AptLevel$,"Level 05");MAKESTRING (AptNumber$,"38");MAKESTRING (AptName$,"APT5-1");MAKESTRING (HVAC_URL$,"http://10.1.38.15:8080");}
+IF (AptNumber#=39){MAKESTRING (AptType$,"Type 19");MAKESTRING (AptLevel$,"Level 05");MAKESTRING (AptNumber$,"39");MAKESTRING (AptName$,"APT5-2");MAKESTRING (HVAC_URL$,"http://10.1.39.15:8080");}
+IF (AptNumber#=40){MAKESTRING (AptType$,"Type 20");MAKESTRING (AptLevel$,"Level 05");MAKESTRING (AptNumber$,"40");MAKESTRING (AptName$,"APT5-3");MAKESTRING (HVAC_URL$,"http://10.1.40.15:8080");}
+IF (AptNumber#=41){MAKESTRING (AptType$,"Type 21");MAKESTRING (AptLevel$,"Level 05");MAKESTRING (AptNumber$,"41");MAKESTRING (AptName$,"APT5-4");MAKESTRING (HVAC_URL$,"http://10.1.41.15:8080");}
+IF (AptNumber#=42){MAKESTRING (AptType$,"Type 22");MAKESTRING (AptLevel$,"Level 05");MAKESTRING (AptNumber$,"42");MAKESTRING (AptName$,"APT5-5");MAKESTRING (HVAC_URL$,"http://10.1.42.15:8080");}
+IF (AptNumber#=43){MAKESTRING (AptType$,"Type 23");MAKESTRING (AptLevel$,"Level 06");MAKESTRING (AptNumber$,"43");MAKESTRING (AptName$,"APT6-1");MAKESTRING (HVAC_URL$,"http://10.1.43.15:8080");}
+IF (AptNumber#=44){MAKESTRING (AptType$,"Grey Box");MAKESTRING (AptLevel$,"Level 06");MAKESTRING (AptNumber$,"44");MAKESTRING (AptName$,"APT6-2");MAKESTRING (HVAC_URL$,"http://10.1.44.15:8080");}
+IF (AptNumber#=45){MAKESTRING (AptType$,"Grey Box");MAKESTRING (AptLevel$,"Level 06");MAKESTRING (AptNumber$,"45");MAKESTRING (AptName$,"APT6-3");MAKESTRING (HVAC_URL$,"http://10.1.45.15:8080");}
+IF (AptNumber#=46){MAKESTRING (AptType$,"Type 26");MAKESTRING (AptLevel$,"Level 06");MAKESTRING (AptNumber$,"46");MAKESTRING (AptName$,"APT6-4");MAKESTRING (HVAC_URL$,"http://10.1.46.15:8080");}
+IF (AptNumber#=47){MAKESTRING (AptType$,"Type 22");MAKESTRING (AptLevel$,"Level 06");MAKESTRING (AptNumber$,"47");MAKESTRING (AptName$,"APT6-5");MAKESTRING (HVAC_URL$,"http://10.1.47.15:8080");}
+IF (AptNumber#=48){MAKESTRING (AptType$,"Grey Box");MAKESTRING (AptLevel$,"Penthouse");MAKESTRING (AptNumber$,"48");MAKESTRING (AptName$,"PH");MAKESTRING (HVAC_URL$,"http://10.1.48.15:8080");}
+IF (AptNumber#=999){MAKESTRING (AptType$,"Debug-AptType");MAKESTRING (AptLevel$,"Debug-Level");MAKESTRING (AptNumber$,"999");MAKESTRING (AptName$,"DD099");MAKESTRING (HVAC_URL$,"http://192.168.0.15/setup");}
+}
+
+
+Function Main()
+{
+    WaitForInitializationComplete();
+}
+

@@ -1,0 +1,25 @@
+Crosspoint listing for C:\Users\Marcin.Rycyk\Dropbox (Smartcomm Ltd)\03 SC Aftercare\1 GSQ\Crestron Upgrades\1GSQ - 4.7 Upgrade\APT4-7 AV v3.6 (AV Upgrade)\APT4-7 AV v3.6.SMW
+
+Note:  Crosspoint symbols with EquipID or ControlID set to 0d are not routeable.
+
+Equipment Crosspoint Routing.                                                                       EquipID
+===========================================================================================================
+S-3.2.1.1                                                                                           1001
+S-3.2.2.1                                                                                           1002
+S-3.2.3.1                                                                                           1003
+S-3.2.4.1                                                                                           1004
+S-3.2.5.1                                                                                           1005
+S-3.2.6.1                                                                                           1006
+S-3.2.7.1                                                                                           1007
+S-3.2.8.1                                                                                           1008
+S-3.2.9.1                                                                                           1009
+S-3.2.10.1                                                                                          1010
+S-3.2.11.1                                                                                          1011
+S-3.2.12.1                                                                                          1012
+
+Control Crosspoint Routing.                                                                         ControlID
+=============================================================================================================
+S-3.3.1                                                                                             2001
+S-3.4.1                                                                                             2002
+S-3.5.1                                                                                             3001
+

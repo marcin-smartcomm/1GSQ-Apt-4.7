@@ -1,0 +1,22 @@
+#DEFAULT_VOLATILE
+STRING_INPUT InputConstant[200],
+			 Input01[200]; 
+
+
+STRING_OUTPUT Combined01;
+
+THREADSAFE CHANGE Input01, InputConstant
+{
+Combined01 = InputConstant + Input01;
+}
+
+
+
+
+
+
+
+Function Main()
+{
+WaitForInitializationComplete();
+}

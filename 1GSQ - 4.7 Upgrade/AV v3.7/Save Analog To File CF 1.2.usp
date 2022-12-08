@@ -1,0 +1,174 @@
+#DEFAULT_VOLATILE
+
+//#DEFINE_CONSTANT DEBUG 1
+
+#DEFINE_CONSTANT MAX_DIG_CMDS      100
+#DEFINE_CONSTANT MAX_ANLG_PRESETS  600
+#DEFINE_CONSTANT MAX_FILE_SIZE     4096
+#DEFINE_CONSTANT MAX_KEYWORD_SIZE  30
+#DEFINE_CONSTANT MAX_VALUE_SIZE    30
+#DEFINE_CONSTANT MAX_FILENAME_SIZE 255
+
+digital_input    Read;
+digital_input    Write;
+string_input     file_path[255];
+
+digital_output   Read_OK;
+digital_output   Write_OK;
+digital_output   NVRAM_Available;               // Set on module initialization;
+                                                // assumed that NVRAMdisk will not
+                                                // be disabled during program
+                                                // execution
+digital_output   Read_ERROR;
+digital_output   Write_ERROR;
+
+analog_output    anlg_preset[MAX_ANLG_PRESETS];
+
+integer          g_iNumAnalogPresets;
+
+push Read
+{
+    integer        iPresetNum;
+    integer        iPresetLevel;
+
+    signed_integer iFileHandle;
+    string         sReadBuf[MAX_FILE_SIZE];
+    signed_integer iErrCode;
+    integer        iStartPos;
+    integer        iEndPos;
+
+    if (StartFileOperations() < 0)
+    {
+#IF_DEFINED Debug
+        print("ERROR: Cannot start file ops\n");
+#ENDIF
+        pulse(50, Read_ERROR);
+        terminateevent;
+    }
+
+//    iFileHandle = FileOpen(file_path, _O_RDONLY);   //  | _O_TEXT); -- no longer supported...
+	iFileHandle = FileOpen(file_path, _O_RDONLY | _O_TEXT);  //supported agian...
+    if (iFileHandle < 0)
+    {
+#IF_DEFINED Debug
+        print("ERROR: Cannot open '%s' for read.\n Error Code=%d\n", file_path, iFileHandle);
+#ENDIF
+        pulse(50, Read_ERROR);
+        EndFileOperations();
+        terminateevent;
+    }
+
+    iErrCode = FileRead(iFileHandle, sReadBuf, MAX_FILE_SIZE);
+
+    iPresetNum = 1;
+    iStartPos  = 1;
+
+    while (iPresetNum <= g_iNumAnalogPresets)
+    {
+        iEndPos = Find (",", sReadBuf, iStartPos) - 1;
+
+        #IF_DEFINED Debug
+            print ("iPresetNum=%d, iStartPos=%d, iEndPos=%d\n", iPresetNum, iStartPos, iEndPos);
+        #ENDIF
+
+        if (iEndPos = 0)
+            break;                  // no more commas found
+
+        iPresetLevel = Atoi (Mid (sReadBuf, iStartPos, iEndPos));
+        anlg_preset[iPresetNum] = iPresetLevel;
+
+        iStartPos = iEndPos + 2;
+        iPresetNum = iPresetNum + 1;
+    }
+
+    iErrCode = FileClose(iFileHandle);
+#IF_DEFINED Debug
+    print("Closed file after read. Error Code=%d\n", iErrCode);
+#ENDIF
+
+    if (EndFileOperations() < 0)
+    {
+#IF_DEFINED Debug
+        print("ERROR: Ending file ops.\n");
+#ENDIF
+    }
+    else
+        pulse(50, Read_OK);
+}
+
+push Write
+{
+     integer        iPresetNum;
+     signed_integer iFileHandle;
+     signed_integer iErrCode;
+     string         sBuf[MAX_FILE_SIZE];
+
+    if (StartFileOperations() < 0)
+    {
+        print("ERROR: Cannot start file ops\n");
+        pulse(50, Write_ERROR);
+        terminateevent;
+    }
+
+    iFileHandle = FileOpen(file_path, _O_CREAT | _O_WRONLY | _O_TEXT | _O_TRUNC);
+
+    if (iFileHandle < 0)
+    {
+        print("ERROR: Cannot open file '%s' for write.\n Error Code=%d\n", file_path, iFileHandle);
+        pulse(50, Write_ERROR);
+        terminateevent;
+    }
+
+    clearbuffer(sBuf);
+
+    for (iPresetNum = 1 to g_iNumAnalogPresets)
+    {
+        MakeString (sBuf, "%s%u", sBuf, anlg_preset[iPresetNum]);
+
+        if (iPresetNum < g_iNumAnalogPresets)
+            MakeString (sBuf, "%s,", sBuf);
+    }
+
+    iErrCode = FileWrite(iFileHandle, sBuf, len(sBuf));
+
+#IF_DEFINED DEBUG
+    if (iErrCode < 0)
+        print ("Error writing file: %d", iErrCode);
+#ENDIF
+
+    iErrCode = FileClose(iFileHandle);
+
+#IF_DEFINED DEBUG
+    print ("Closed file after write.  Error code = %d\n", iErrCode);
+
+#ENDIF
+
+    iErrCode = EndFileOperations();
+
+    if (iErrCode < 0)
+    {
+#IF_DEFINED DEBUG
+        print ("Error ending file operations: %d", iErrCode);
+#ENDIF
+    }
+    else
+        pulse(50, Write_OK);
+}
+
+function main()
+{
+    if(CheckForNVRAMDisk() <> 1)
+    {
+        print("ERROR: No NVRAM disk available.\n");
+        NVRam_Available=0;
+    }
+    else
+        NVRam_Available=1;
+
+    for (g_iNumAnalogPresets=MAX_anlg_presetS to 1 step -1)
+    {
+        if (IsSignalDefined(anlg_preset[g_iNumAnalogPresets]))
+            break;
+    }
+}
+

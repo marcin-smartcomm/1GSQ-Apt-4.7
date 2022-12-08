@@ -1,0 +1,167 @@
+#DEFAULT_VOLATILE
+DIGITAL_INPUT 		SIPMake;
+
+STRING_INPUT 		_SKIP_,
+					USER$[50],
+			  		AUTH$[50],
+					PSW$[50],
+					SIPSRV$[50],
+					SIPPORT$[10],
+					DOMAIN$[50],
+					REALM$[50],
+					MODE$[50],
+					AUTO$[10],
+					RCONFIG$[500],
+					DNAME$[50],
+					PORT$[50],
+					SRVNAME$[50],
+					PAGEGROUP$[50],
+					PROXYIP$[50],
+					NAMESRV$[50],
+					STUNDOM$[50],
+					STUNIP$[50],
+					DND$[50],
+					APTName$[50],
+					SIPAUTOMODE[50];
+
+DIGITAL_OUTPUT 		_SKIP_,
+					_SKIP_,
+					SIPSetupInProgress_FB,
+					_SKIP_,
+					_SKIP_,
+					_SKIP_,	
+					_SKIP_; 
+STRING_OUTPUT 		SIPINT$,SIPTELNET$;
+			  
+PUSH SIPMake
+	{
+		//Connect to SSH
+		SIPSetupInProgress_FB = 1;
+        DELAY (500);
+        
+		//Sets Panels Server/Peer Mode
+		SIPTELNET$ = "SIPMODE " + MODE$ + "\n";
+		DELAY (200);
+
+		//Sets Panels SIP PORT
+		SIPTELNET$ = "SIPLOCALPORT " + SIPPORT$ + "\n";
+		DELAY (200);
+
+		//Sets Panels Realm  - SIP realm:
+		SIPTELNET$ = "SIPSRVREALM " + REALM$ + "\n";
+		DELAY (200);
+
+		//Sets Panels Server Address - SIP remote config file:
+		SIPTELNET$ = "SIPREMOTECONFIG " + RCONFIG$ + "\n";
+		DELAY (200);
+
+		//Sets Panel to Full Duplex
+		SIPTELNET$ = "SIPAUDIOMODE FD\n";
+		DELAY (200);
+
+		//Enables DTMF
+		SIPTELNET$ = "SIPAUDIOMODE RFC2833 ON\n";
+        DELAY (200);
+        
+		//Adds 
+		SIPTELNET$ ="SIPSRVUSER " + USER$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPSRVPASS " + PSW$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPLOCALEXT "+ USER$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPAUTOMODE "+ SIPAUTOMODE + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPLOCALNAME "+ DNAME$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPSRVNAME "+ SRVNAME$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPPAGEGROUP "+ PAGEGROUP$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPPROXYSRV "+ PROXYIP$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPNAMESRV "+ NAMESRV$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPSTUNDOMAIN "+ STUNDOM$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPSTUNSRV "+ STUNIP$ + "\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPSRVIPADDRESS "+ SIPSRV$ + "\n";
+		DELAY (200);
+
+
+
+
+
+
+
+		//INTERNAL NICE BITS
+		SIPTELNET$ ="MEDIAVOLUME 100%\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPDEFAULTRING AUTO\n";
+		DELAY (200);
+
+		SIPTELNET$ ="MASTERSTATE ON\n";
+		DELAY (200);
+
+		SIPTELNET$ ="MEDIAMUTE OFF\n";
+		DELAY (200);
+
+		SIPTELNET$ ="MASTERVOL 100%\n";
+		DELAY (200);
+
+		SIPTELNET$ ="AUTIME 01:00\n";
+        DELAY (200);
+
+		SIPTELNET$ ="STBYTO 5\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SYSMSG ON\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SCREENSAVER DISABLE\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPENABLE ON\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPVIDEO ON\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPEARLYMEDIA AUTO\n";
+		DELAY (200);
+					
+		SIPTELNET$ ="AUENABLE ON\n";
+		DELAY (200);
+
+		SIPTELNET$ ="MICSTATE ON\n";
+		DELAY (200);
+
+		SIPTELNET$ ="SIPRESTART\n";
+		DELAY (500);
+
+		SIPTELNET$ ="SIPINFO\n";
+		DELAY (500);
+
+
+		SIPSetupInProgress_FB = 0;
+		
+	}
+
+Function Main()
+{
+WAITForInitializationComplete();
+	SIPSetupInProgress_FB = 0;
+}

@@ -1,0 +1,569 @@
+[
+Version=1
+]
+[
+ObjTp=FSgntr
+Sgntr=UserMacro
+RelVrs=4.14.31
+IntStrVrs=2
+MinSMWVrs=0
+MinTIOVrs=0
+SavedBy=SMW4.09.04
+]
+[
+ObjTp=Hd
+S0Nd=1
+S1Nd=2
+SLNd=3
+PrNm=GSQ Intercom Video Routing v1.0.umc
+DbVr=203.00.005.00
+DvcDbVr=200.45.003.00
+CltNm=BuckG Intercom Video
+Incl=362,378,380,405,407,408,409,478,522,537,554,586,590,611,624,767,830,883,1032,1062,1079,1134,1157,1199,1220,1222,1299,1348,1439,1472,1473,1499,1746,1803,1975,2229,2354,2514,2523,2532,3708,3902,3912,3918,3925,1766,2574,2651,2817,2886,2938,2947,3181,3197,3233,3710,3735,3736,3816,3888,4176,4308,4476,4591,4769,5360,5388,5420,5455,5497,5699,5813,5919,
+McNm=GSQ Intercom Video Routing v1.0
+SmVr=1131
+DvVr=1131
+TpN1=1
+TpN2=2
+TpN3=3
+TpN4=4
+TpN5=5
+APg=1
+FltTmp=1
+FpCS=0
+EnType=0
+ZeroOnIoOk=0
+SGMethod=1
+]
+[
+ObjTp=Bk
+Nm1=\
+Sx1=0
+Sy1=0
+Mx1=0
+]
+[
+ObjTp=Bw
+H=1
+Lx=0
+Ly=0
+Rx=1040
+Ry=402
+Xm=-1
+Ym=-1
+SH=8
+Z=100
+Ht=3
+Hi=11
+]
+[
+ObjTp=Bw
+H=1
+Lx=0
+Ly=402
+Rx=1040
+Ry=804
+Xm=-1
+Ym=-1
+SH=7
+Z=100
+Ht=1
+Hi=1
+]
+[
+ObjTp=Symbol
+Name=GSQ Intercom Video Routing v1.0
+Code=1
+SmplCName=GSQ Intercom Video Routing v1.0.umc
+Smpl-C=3
+CompilerTimePrecision=Single_Or_Double_Precision
+Hint=BuckG Intercom Video
+SMWRev=0
+TIORev=0
+HelpID=1055
+APg=1
+StdCmd=0
+FltTmp=1
+FpCS=0
+NumFixedInputs=14
+NumFixedOutputs=14
+NumFixedParams=21
+MinVariableInputs=0
+MinVariableInputsList2=0
+MinVariableInputsList3=0
+MinVariableOutputs=0
+MinVariableOutputsList2=0
+MinVariableOutputsList3=0
+MinVariableParams=0
+SymbolTree=32
+InputSigType1=Serial
+InputSigType2=Digital|Analog|Serial|String
+InputSigType3=Digital
+InputSigType4=Digital|Analog|Serial|String
+OutputSigType1=Digital
+OutputSigType2=Digital
+OutputSigType3=Digital
+OutputSigType4=Digital
+OutputSigType5=Digital
+OutputSigType6=Digital
+OutputSigType7=Digital
+OutputSigType8=Digital
+OutputSigType9=Digital
+OutputSigType10=Digital
+OutputSigType11=Digital|Analog|Serial|String
+OutputSigType12=Serial
+OutputSigType13=Digital|Analog|Serial|String
+ParamSigType1=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType2=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType3=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType4=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType5=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType6=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType7=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType8=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType9=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType10=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType11=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType12=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType13=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType14=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType15=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType16=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType17=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType18=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType19=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType20=Time|Percent|Constant|String|FileName|HexAddress|Any
+ParamSigType21=Time|Percent|Constant|String|FileName|HexAddress|Any
+InputCue1=[IncomingURL$]
+InputCue2=[~UNUSED~]
+InputCue3=[CallEnded]
+InputCue4=[~UNUSED~]
+InputCue5=[~UNUSED~]
+InputCue6=[~UNUSED~]
+InputCue7=[~UNUSED~]
+InputCue8=[~UNUSED~]
+InputCue9=[~UNUSED~]
+InputCue10=[~UNUSED~]
+InputCue11=[~UNUSED~]
+InputCue12=[~UNUSED~]
+InputCue13=[~UNUSED~]
+InputCue14=[~UNUSED~]
+OutputCue1=[Show][VideoSource01][FB]
+OutputCue2=[Show][VideoSource02][FB]
+OutputCue3=[Show][VideoSource03][FB]
+OutputCue4=[Show][VideoSource04][FB]
+OutputCue5=[Show][VideoSource05][FB]
+OutputCue6=[Show][VideoSource06][FB]
+OutputCue7=[Show][VideoSource07][FB]
+OutputCue8=[Show][VideoSource08][FB]
+OutputCue9=[Show][VideoSource09][FB]
+OutputCue10=[Show][VideoSource10][FB]
+OutputCue11=[~UNUSED~]
+OutputCue12=[VideoURL$]
+OutputCue13=[~UNUSED~]
+OutputCue14=[~UNUSED~]
+ParamCue1=Incoming SIP Ext01
+ParamCue2=Incoming SIP Ext02
+ParamCue3=Incoming SIP Ext03
+ParamCue4=Incoming SIP Ext04
+ParamCue5=Incoming SIP Ext05
+ParamCue6=Incoming SIP Ext06
+ParamCue7=Incoming SIP Ext07
+ParamCue8=Incoming SIP Ext08
+ParamCue9=Incoming SIP Ext09
+ParamCue10=Incoming SIP Ext10
+ParamCue11=[~UNUSED~]
+ParamCue12=Output Video01 URL
+ParamCue13=Output Video02 URL
+ParamCue14=Output Video03 URL
+ParamCue15=Output Video04 URL
+ParamCue16=Output Video05 URL
+ParamCue17=Output Video06 URL
+ParamCue18=Output Video07 URL
+ParamCue19=Output Video08 URL
+ParamCue20=Output Video09 URL
+ParamCue21=Output Video10 URL
+FileName=GSQ Intercom Video Routing v1.0.umc
+EncodingType=0
+ZeroOnIoOk=0
+]
+[
+ObjTp=Sm
+H=1
+SmC=157
+Nm=Central Control Modules
+ObjVer=1
+CF=2
+n1I=1
+n1O=1
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=2
+SmC=157
+Nm=Network Modules
+ObjVer=1
+CF=2
+n1I=1
+n1O=1
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=3
+SmC=157
+Nm=Ethernet
+ObjVer=1
+CF=2
+n1I=1
+n1O=1
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=4
+SmC=156
+Nm=Logic
+ObjVer=1
+CF=2
+mC=3
+C1=7
+C2=8
+C3=9
+]
+[
+ObjTp=Sm
+H=5
+SmC=157
+Nm=DefineArguments
+ObjVer=1
+CF=2
+n1I=1
+n1O=1
+mC=1
+C1=6
+mI=1
+mO=1
+tO=1
+mP=1
+P1=
+]
+[
+ObjTp=Sm
+H=6
+SmC=55
+Nm=Argument Definition
+ObjVer=1
+PrH=5
+CF=2
+n1I=14
+n1O=14
+mI=14
+I1=4
+I2=17
+I3=5
+I4=17
+I5=17
+I6=17
+I7=17
+I8=17
+I9=17
+I10=17
+I11=17
+I12=17
+I13=17
+I14=17
+mO=14
+tO=14
+O1=6
+O2=7
+O3=8
+O4=9
+O5=10
+O6=11
+O7=12
+O8=13
+O9=14
+O10=15
+O11=17
+O12=16
+O13=17
+O14=17
+mP=21
+P1=Incoming SIP Ext01
+P2=Incoming SIP Ext02
+P3=Incoming SIP Ext03
+P4=Incoming SIP Ext04
+P5=Incoming SIP Ext05
+P6=Incoming SIP Ext06
+P7=Incoming SIP Ext07
+P8=Incoming SIP Ext08
+P9=Incoming SIP Ext09
+P10=Incoming SIP Ext10
+P11=[~UNUSED~]
+P12=Output Video01 URL
+P13=Output Video02 URL
+P14=Output Video03 URL
+P15=Output Video04 URL
+P16=Output Video05 URL
+P17=Output Video06 URL
+P18=Output Video07 URL
+P19=Output Video08 URL
+P20=Output Video09 URL
+P21=Output Video10 URL
+]
+[
+ObjTp=Sm
+H=7
+SmC=101
+Nm=Serial I/O
+ObjVer=1
+PrH=4
+CF=2
+n1I=3
+n1O=11
+mI=3
+I1=4
+mO=11
+tO=11
+O2=18
+O3=19
+O4=20
+O5=21
+O6=22
+O7=23
+O8=24
+O9=25
+O10=26
+O11=27
+mP=12
+P1=
+P2=
+P3=sip:\[#Incoming SIP Ext01\]
+P4=sip:\[#Incoming SIP Ext02\]
+P5=sip:\[#Incoming SIP Ext03\]
+P6=sip:\[#Incoming SIP Ext04\]
+P7=sip:\[#Incoming SIP Ext05\]
+P8=sip:\[#Incoming SIP Ext06\]
+P9=sip:\[#Incoming SIP Ext07\]
+P10=sip:\[#Incoming SIP Ext08\]
+P11=sip:\[#Incoming SIP Ext09\]
+P12=sip:\[#Incoming SIP Ext10\]
+]
+[
+ObjTp=Sm
+H=8
+SmC=101
+Nm=Serial I/O
+ObjVer=1
+PrH=4
+CF=2
+n1I=13
+n1O=2
+mI=13
+I3=6
+I4=7
+I5=8
+I6=9
+I7=10
+I8=11
+I9=12
+I10=13
+I11=14
+I12=15
+I13=28
+mO=2
+tO=2
+O1=16
+mP=13
+P1=
+P2=\[#Output Video01 URL\]
+P3=\[#Output Video02 URL\]
+P4=\[#Output Video03 URL\]
+P5=\[#Output Video04 URL\]
+P6=\[#Output Video05 URL\]
+P7=\[#Output Video06 URL\]
+P8=\[#Output Video07 URL\]
+P9=\[#Output Video08 URL\]
+P10=\[#Output Video09 URL\]
+P11=\[#Output Video10 URL\]
+P12=\x20
+P13=
+]
+[
+ObjTp=Sm
+H=9
+SmC=19
+Nm=Interlock
+ObjVer=1
+PrH=4
+CF=2
+n1I=13
+n1O=11
+mI=13
+I3=5
+I4=18
+I5=19
+I6=20
+I7=21
+I8=22
+I9=23
+I10=24
+I11=25
+I12=26
+I13=27
+mO=11
+tO=11
+O1=28
+O2=6
+O3=7
+O4=8
+O5=9
+O6=10
+O7=11
+O8=12
+O9=13
+O10=14
+O11=15
+]
+[
+ObjTp=Sg
+H=4
+Nm=[IncomingURL$]
+SgTp=4
+]
+[
+ObjTp=Sg
+H=5
+Nm=[CallEnded]
+]
+[
+ObjTp=Sg
+H=6
+Nm=[Show][VideoSource01][FB]
+]
+[
+ObjTp=Sg
+H=7
+Nm=[Show][VideoSource02][FB]
+]
+[
+ObjTp=Sg
+H=8
+Nm=[Show][VideoSource03][FB]
+]
+[
+ObjTp=Sg
+H=9
+Nm=[Show][VideoSource04][FB]
+]
+[
+ObjTp=Sg
+H=10
+Nm=[Show][VideoSource05][FB]
+]
+[
+ObjTp=Sg
+H=11
+Nm=[Show][VideoSource06][FB]
+]
+[
+ObjTp=Sg
+H=12
+Nm=[Show][VideoSource07][FB]
+]
+[
+ObjTp=Sg
+H=13
+Nm=[Show][VideoSource08][FB]
+]
+[
+ObjTp=Sg
+H=14
+Nm=[Show][VideoSource09][FB]
+]
+[
+ObjTp=Sg
+H=15
+Nm=[Show][VideoSource10][FB]
+]
+[
+ObjTp=Sg
+H=16
+Nm=[VideoURL$]
+SgTp=4
+]
+[
+ObjTp=Sg
+H=17
+Nm=[~UNUSED~]
+SgTp=31
+]
+[
+ObjTp=Sg
+H=18
+Nm=[READ][VideoSource01]
+]
+[
+ObjTp=Sg
+H=19
+Nm=[READ][VideoSource02]
+]
+[
+ObjTp=Sg
+H=20
+Nm=[READ][VideoSource03]
+]
+[
+ObjTp=Sg
+H=21
+Nm=[READ][VideoSource04]
+]
+[
+ObjTp=Sg
+H=22
+Nm=[READ][VideoSource05]
+]
+[
+ObjTp=Sg
+H=23
+Nm=[READ][VideoSource06]
+]
+[
+ObjTp=Sg
+H=24
+Nm=[READ][VideoSource07]
+]
+[
+ObjTp=Sg
+H=25
+Nm=[READ][VideoSource08]
+]
+[
+ObjTp=Sg
+H=26
+Nm=[READ][VideoSource09]
+]
+[
+ObjTp=Sg
+H=27
+Nm=[READ][VideoSource10]
+]
+[
+ObjTp=Sg
+H=28
+Nm=[CallEnded]_FB
+]
