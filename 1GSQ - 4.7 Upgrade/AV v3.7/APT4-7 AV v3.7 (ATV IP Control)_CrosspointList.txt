@@ -1,4 +1,4 @@
-Crosspoint listing for C:\Users\Marcin.Rycyk\Desktop\APT4-7 AV v3.6 (AV Upgrade)\APT4-7 AV v3.7 (ATV IP Control).SMW
+Crosspoint listing for C:\Users\Marcin.Rycyk\Desktop\Smartcomm\PROJECTS\1GSQ-Apt-4.7\1GSQ - 4.7 Upgrade\AV v3.7\APT4-7 AV v3.7 (ATV IP Control).SMW
 
 Note:  Crosspoint symbols with EquipID or ControlID set to 0d are not routeable.
 
